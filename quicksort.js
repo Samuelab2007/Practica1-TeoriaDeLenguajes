@@ -1,5 +1,8 @@
 // Ejercicio 1428: Implementar el algoritmo de ordenamiento quicksort en una función.
 
+let barometroIf=0;
+let barometroElse=0;
+
 function quicksort(datos) {
 
     if (datos.length <= 1) {
@@ -15,19 +18,21 @@ function quicksort(datos) {
     for (let i = 0; i < n; i++) {
         if (datos[i] <= pivote) {
             izquierdo.push(datos[i]);
-    
+            barometroIf++;
         } else {
             derecha.push(datos[i]);
-            
+            barometroElse++;
         }
     }
 
     return auxiliar.concat(quicksort(izquierdo), pivote, quicksort(derecha));
 }
 
-let testVector = [19, 13, 2, 75,11, 7, 100, -7, 5, 23, 17, 4, 5, 0, 8, 14, 1];
+let testVector = Array(10).fill().map(() => Math.round(Math.random() * 40)) //Vector de números positivos aleatorizados
 console.log(testVector);
 
 
 let resultado = quicksort(testVector);
+console.log("Cantidad de veces que se divide por la izquierda", barometroIf);
+console.log("Cantidad de veces que se divide por la derecha", barometroElse);
 console.log(resultado);
