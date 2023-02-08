@@ -1,7 +1,6 @@
 // Ejercicio 1428: Implementar el algoritmo de ordenamiento quicksort en una función.
 
-let barometroIf=0;
-let barometroElse=0;
+let barometroQuicksort = 0;
 
 let barometroBubble = 0;
 
@@ -18,12 +17,11 @@ function quicksort(datos) {
     let n = datos.length;
 
     for (let i = 0; i < n; i++) {
+        barometroQuicksort++;
         if (datos[i] <= pivote) {
             izquierdo.push(datos[i]);
-            barometroIf++;
         } else {
             derecha.push(datos[i]);
-            barometroElse++;
         }
     }
 
@@ -74,9 +72,7 @@ let ordenBubbleSort = bblSort(copiaVector); //Ordenamiento bubble Sort
 console.log(ordenBubbleSort);
 console.log("Barómetro Bubble", barometroBubble)
 
-console.log("Barómetros para quicksort");
-console.log("Cantidad de veces que se divide por la izquierda", barometroIf);
-console.log("Cantidad de veces que se divide por la derecha", barometroElse);
+console.log("Barómetro para quicksort",barometroQuicksort);
 
 console.log("Vector ordenado por quicksort");
 console.log(resultado);
